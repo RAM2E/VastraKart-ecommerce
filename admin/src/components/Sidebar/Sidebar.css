@@ -1,0 +1,140 @@
+.menu-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    padding: 0.0rem;
+}
+
+.menu-icon {
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+}
+
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #eee;
+    min-height: 70px;
+}
+
+.side-logo {
+    font-size: 2rem;
+    color: rgb(243,141,7);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: rgba(243,141,7,0.1);
+    color: rgb(243,141,7);
+    border-left-color: rgb(243,141,7);
+}
+
+.sidebar-icon {
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.sidebar-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.logout-btn {
+    margin-top: auto;
+    border-top: 1px solid #eee;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar-overlay {
+        display: block;
+    }
+
+    .sidebar-container {
+        transform: translateX(-100%);
+    }
+
+    .sidebar-container.open {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-container {
+        width: 260px;
+    }
+
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .sidebar-link {
+        padding: 0.875rem 1.25rem;
+    }
+}

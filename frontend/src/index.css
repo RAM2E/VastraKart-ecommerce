@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 clamp(10px, 5vw, 80px);
+  background: #f9f9f9;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.product-container {
+  margin-top: clamp(20px, 4vw, 50px);
+}
+
+.list_header h1 {
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: bold;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.product-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  transform: scale(0.8);
+  transition: transform 0.5s ease;
+}
+
+.product-card h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  margin: 5px 0 10px;
+}
+
+.product-card p {
+  font-size: clamp(16px, 3vw, 20px);
+  color: red;
+  padding-bottom: 15px;
+}
+
+.banner img {
+  width: 100%;
+  max-width: 1150px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .product-image img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .product-image img {
+    height: 180px;
+  }
+}

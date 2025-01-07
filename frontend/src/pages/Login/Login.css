@@ -1,0 +1,82 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 24rem;
+    margin: 3.5rem auto;
+    gap: 1rem;
+    color: #333; /* Slightly darker for better readability */
+    font-family: Arial, sans-serif; /* Add a clean font family */
+}
+
+.form-header {
+    display: flex; /* Adjust for better alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+.form-title {
+    font-size: 2rem; /* Slightly larger for emphasis */
+    font-weight: bold; /* Add weight for prominence */
+    color: #222; /* Darker title color for contrast */
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem; /* Increase padding for better UX */
+    border: 1px solid #ccc; /* Softer border color */
+    border-radius: 6px; /* Slightly larger rounding */
+    font-size: 1rem;
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth focus effect */
+}
+
+.form-input:focus {
+    border-color: #000; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+.form-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.9rem; /* Adjust size for readability */
+    margin-top: -0.5rem;
+    color: #555; /* Muted text color for less emphasis */
+}
+
+.forgot-pswd,
+.toggle-auth-state {
+    cursor: pointer;
+    color: #007bff; /* Add a link-style color */
+    text-decoration: underline; /* Enhance clickable feel */
+    transition: color 0.3s; /* Smooth hover effect */
+}
+
+.forgot-pswd:hover,
+.toggle-auth-state:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+.form-button {
+    background-color: #000;
+    color: #fff;
+    font-weight: 400; /* Medium weight for readability */
+    padding: 0.6rem 2.5rem; /* Adjust padding for balance */
+    margin: 1rem 0; /* Space around the button */
+    border: none;
+    border-radius: 6px; /* Smooth button corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Add smooth hover/active effects */
+}
+
+.form-button:hover {
+    background-color: #444; /* Lighter shade on hover */
+}
+
+.form-button:active {
+    transform: scale(0.98); /* Slight shrink effect on click */
+}

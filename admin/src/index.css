@@ -1,0 +1,91 @@
+.app-container {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    min-width: 320px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.app-content {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.page-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: clamp(1rem, 3vw, 2rem);
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-height: calc(100vh - 4rem);
+    transition: all 0.3s ease;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-left: 250px;
+}
+
+.active {
+    background-color: rgb(243,141,7);
+    color: white;
+    border-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+    .page-content {
+        margin-left: 80px;
+        max-width: calc(100% - 80px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .app-content {
+        padding: 0;
+    }
+
+    .page-content {
+        margin-left: 60px;
+        max-width: calc(100% - 60px);
+        border-radius: 0;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .app-container {
+        padding: 0;
+    }
+
+    .page-content {
+        margin-left: 60px;
+        padding: 0.75rem;
+    }
+}
+
+/* Utility classes */
+.shadow {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.rounded {
+    border-radius: 12px;
+}
+
+.transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .app-container {
+        background-color: #1a1a1a;
+    }
+
+    .page-content {
+        background-color: #242424;
+        color: #fff;
+    }
+}
