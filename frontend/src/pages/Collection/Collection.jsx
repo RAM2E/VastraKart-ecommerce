@@ -16,7 +16,7 @@ const Collection = () => {
 
   const bannerImages = {
     Men: men_wear,
-    Women: women_wear, // Fixed typo
+    Women: women_wear, 
     Kids: kid_wear,
   };
 
