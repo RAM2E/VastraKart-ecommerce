@@ -1,10 +1,8 @@
 import React,{useContext, useEffect, useState} from 'react'
 import { ShopContext } from '../../context/ShopContext'
 import { toast } from 'react-toastify'
-import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-
-import { backendUrl } from '../../App'
+import axiosInstance from '../../utils/axios'
 
 import './Login.css'
 
@@ -21,42 +19,78 @@ const Login = () => {
   const [password,setPassword] =useState('')
 
 
+  // const onSubmitHandler = async(event)=>{
+  //   event.preventDefault();
+  //   try {
+  //     if(currentState === 'Sign Up'){
+  //       const response = await axiosInstance.post(
+  //         '/api/user/register',
+  //         {name,email,password}
+  //       )
+  //       if(response.data.success){
+  //         setToken(response.data.token)
+  //         toast.success(response.data.message)
+  //         localStorage.setItem('token',response.data.token)
+  //       }
+  //       else{
+  //         toast.error(response.data.message)
+  //       }
+  //     }
+  //     else{
+  //       const response = await axiosInstance.post('/api/user/login',{email,password})
+  //       if(response.data.success){
+  //         setToken(response.data.token)
+  //         toast.success(response.data.message)
+  //         localStorage.setItem('token',response.data.token)
+
+  //       }
+  //       else{
+  //         toast.error(response.data.message)
+  //       }
+  //     }
+  //   } catch (error) {
+
+  //     console.log(error)
+  //     toast.error(error.message)
+      
+  //   }
+  // }
+
   const onSubmitHandler = async(event)=>{
     event.preventDefault();
     try {
       if(currentState === 'Sign Up'){
-        const response = await axios.post(
-          backendUrl+'/api/user/register',
+        const response = await axiosInstance.post(
+          '/api/user/register',
           {name,email,password}
         )
         if(response.data.success){
           setToken(response.data.token)
-          toast.success(response.data.message)
           localStorage.setItem('token',response.data.token)
+          localStorage.setItem('userId', response.data.userId)
+          toast.success(response.data.message)
         }
         else{
           toast.error(response.data.message)
         }
       }
       else{
-        const response = await axios.post(backendUrl+'/api/user/login',{email,password})
+        const response = await axiosInstance.post('/api/user/login',{email,password})
         if(response.data.success){
           setToken(response.data.token)
-          toast.success(response.data.message)
           localStorage.setItem('token',response.data.token)
-
+          localStorage.setItem('userId', response.data.userId)
+          toast.success(response.data.message)
         }
         else{
           toast.error(response.data.message)
         }
       }
     } catch (error) {
-
-      console.log(error)
-      toast.error(error.message)
-      
+      console.error('Auth error:', error)
+      toast.error(error.response?.data?.message || 'Authentication failed')
     }
-  }
+}
 
   useEffect(()=>{
     if(token){
